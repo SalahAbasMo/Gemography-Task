@@ -16,6 +16,8 @@ export class GithubServiceService {
 
   //*  [HttpGet]
 
+  //* it will accept two parrames page coutn and date ,so if i want to change my date..
+
   ListTrending(date: string, page: number) {
     //* Create new HttpParams
     let params = new HttpParams()
@@ -27,7 +29,7 @@ export class GithubServiceService {
     //* Api Url
     const url = 'https://api.github.com/search/repositories';
 
-    //* Sending Request
+    //* Sending Request with my params
 
     return this._http.get<DataTypeDto>(url, { params: params });
   }

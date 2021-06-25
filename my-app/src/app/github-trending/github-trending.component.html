@@ -8,7 +8,8 @@
       [infiniteScrollDisabled]="isFullListDisplayed"
       (scrolled)="onScroll()"
     >
-      <div class="col-md-12 mt-2 mb-2" *ngFor="let item of rows">
+      <!--** looping to draw my card with NgFor using my array ** -->
+      <div class="col-md-12 mt-3 mb-3" *ngFor="let item of rows">
         <div class="card">
           <h5 class="card-header">{{ item?.full_name }}</h5>
           <div class="card-body">
