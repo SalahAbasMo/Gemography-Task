@@ -1,31 +1,41 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-12 mt-2 mb-2" *ngFor="let item of rows">
-      <div class="card">
-        <h5 class="card-header">{{ item?.full_name }}</h5>
-        <div class="card-body">
-          <div class="float-start text-center">
-            <img
-              src="{{ item?.owner.avatar_url }}"
-              class="rounded-circle me-5"
-              alt="..."
-              style="width: 10rem"
-            />
-            <h5 class="card-title me-5 mt-3">{{ item?.owner.login }}</h5>
+    <div
+      class="search-results"
+      infiniteScroll
+      [infiniteScrollDistance]="1"
+      [infiniteScrollThrottle]="50"
+      [infiniteScrollDisabled]="isFullListDisplayed"
+      (scrolled)="onScroll()"
+    >
+      <div class="col-md-12 mt-2 mb-2" *ngFor="let item of rows">
+        <div class="card">
+          <h5 class="card-header">{{ item?.full_name }}</h5>
+          <div class="card-body">
+            <div class="float-start text-center">
+              <img
+                src="{{ (item?.owner)!.avatar_url }}"
+                class="rounded-circle me-5"
+                alt="..."
+                style="width: 10rem"
+              />
+              <h5 class="card-title me-5 mt-3">{{ (item?.owner)!.login }}</h5>
+            </div>
+
+            <h5 class="card-title">{{ item?.name }}</h5>
+            <p class="card-text">
+              {{ item?.description }}
+            </p>
+
+            <a href="javascript:void(0)" class="btn btn-warning me-2">
+              <i class="bi bi-star-fill me-1"></i
+              >{{ item?.stargazers_count }}</a
+            >
+            <a href="javascript:void(0)" class="btn btn-danger">
+              <i class="bi bi-x-octagon-fill me-1"></i
+              >{{ item?.open_issues_count }}</a
+            >
           </div>
-
-          <h5 class="card-title">{{ item?.name }}</h5>
-          <p class="card-text">
-            {{ item?.description }}
-          </p>
-
-          <a href="javascript:void(0)" class="btn btn-warning me-2">
-            <i class="bi bi-star-fill me-1"></i>{{ item?.stargazers_count }}</a
-          >
-          <a href="javascript:void(0)" class="btn btn-danger">
-            <i class="bi bi-x-octagon-fill me-1"></i
-            >{{ item?.open_issues_count }}</a
-          >
         </div>
       </div>
     </div>

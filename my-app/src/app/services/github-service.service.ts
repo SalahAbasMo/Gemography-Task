@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
+import { DataTypeDto } from '../Dto/GitHubDataDto';
 
 @Injectable({
   providedIn: 'root',
@@ -28,7 +29,7 @@ export class GithubServiceService {
 
     //* Sending Request
 
-    return this._http.get<any>(url, { params: params });
+    return this._http.get<DataTypeDto>(url, { params: params });
   }
 
   // #endregion Public Methods (3)
