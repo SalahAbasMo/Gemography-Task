@@ -19,6 +19,7 @@ export class GithubTrendingComponent implements OnInit {
   rows: GitHubDataDto[] = [];
   date: Date = new Date('2017-10-22');
   page: number = 1;
+  count: number = 2;
   newDate!: string;
   isFullListDisplayed: boolean = false;
 
@@ -69,7 +70,7 @@ export class GithubTrendingComponent implements OnInit {
   onScroll() {
     //*counter increasing pages while scrolling
 
-    let page = this.page++;
+    let page = this.count++;
     //*calling onScrolling method to send request
 
     this.onScrollPagination(page);
